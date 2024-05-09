@@ -12,7 +12,7 @@ const pool = new Pool({
 
 // iniciar o servidor
 var server = restify.createServer({
-    name: 'pratica-4',
+    name: 'pratica-5',
 });
 
 // Iniciando o banco de dados
@@ -26,7 +26,6 @@ async function initDatabase() {
         setTimeout(initDatabase, 5000);
     }
 }
-
 // Middleware para permitir o parsing do corpo da requisição
 server.use(restify.plugins.bodyParser());
 
@@ -103,7 +102,6 @@ server.post('/api/v1/professor/excluir', async (req, res, next) => {
   
     return next();
 });
-
 // endpoint para resetar o banco de dados
 server.del('/api/v1/database/reset', async (req, res, next) => {
     try {
@@ -118,7 +116,6 @@ server.del('/api/v1/database/reset', async (req, res, next) => {
   
     return next();
 });
-
 // iniciar o servidor
 var port = process.env.PORT || 5000;
 // configurando o CORS
@@ -135,7 +132,6 @@ server.use(function(req, res, next) {
         next();
     }
 });
-
 server.listen(port, function() {
     console.log('Servidor iniciado', server.name, ' na url http://localhost:' + port);
     // Iniciando o banco de dados
